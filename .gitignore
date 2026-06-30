@@ -1,0 +1,42 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Eval reports (keep only the latest baseline, committed explicitly)
+**/eval/reports/
+!**/eval/reports/baseline_*.json
+
+# Model weights and large artifacts
+*.bin
+*.safetensors
+*.gguf
+*.pt
+*.ckpt
+adapters/
+
+# Docker
+.dockerignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

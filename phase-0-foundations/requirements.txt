@@ -1,0 +1,5 @@
+# Phase 0 — no production dependencies.
+# Install these only if you want a scratch notebook environment.
+anthropic>=0.40.0
+jupyter>=1.1.0
+transformers>=4.40.0   # for tokenizer experiments
