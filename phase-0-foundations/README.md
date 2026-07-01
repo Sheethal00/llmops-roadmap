@@ -8,7 +8,7 @@ Build a mental model of how LLM-powered systems differ from classical ML systems
 
 Write a 1-page comparison of an MLOps pipeline vs an LLMOps pipeline for the same use case: a support-ticket classifier, first built as a traditional supervised ML model, then rebuilt as an LLM-prompted classifier. Identify what changes at each lifecycle stage.
 
-The comparison lives in [`notes.md`](notes.md). It starts as a structured outline — fill in each section with your own understanding before moving to Phase 1.
+The comparison lives in [`notes.md`](notes.md). A visual side-by-side reference is at [`docs/architecture/mlops-llmops.html`](../docs/architecture/mlops-llmops.html) — open it in a browser.
 
 ## How to Run
 

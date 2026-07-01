@@ -1,27 +1,28 @@
 # Week 01 — Phase 0: Foundations Refresh
 
-**Status:** In progress
+**Status:** Complete
 
 ## What was built
 
 - Scaffolded root repo structure: `README.md`, `.gitignore`, `.env.example`, `docs/`, `phase-0-foundations/`.
-- Created `phase-0-foundations/notes.md` as a structured outline for the MLOps vs LLMOps comparison.
-- Created `docs/glossary.md` for accumulating LLMOps terminology.
+- Wrote a full MLOps vs LLMOps comparison in `phase-0-foundations/notes.md` across 5 lifecycle stages using a support-ticket classifier as the running example.
+- Added visual HTML comparison at `docs/architecture/mlops-llmops.html`.
 
 ## Key insights
 
-*Fill in after completing `notes.md`. Aim for 3-5 bullet points that would help a future engineer understand why the LLMOps approach differs — not just that it does.*
-
-- [ ] Fill in
+- **Labeled data relocates, not disappears.** In MLOps it's training fuel. In LLMOps it comes back as an eval set — but you can ship on day one with zero labels.
+- **The prompt is a data artifact.** It encodes the label schema, rules, and examples. It needs to be versioned, reviewed, and deployed like code — which is exactly what Phase 1 (PromptManager) solves.
+- **Adding a new category exposes the biggest difference.** MLOps: re-label data + retrain (days). LLMOps: edit one line in the prompt + re-run eval (minutes).
+- **Evaluation gets harder, not easier.** A single F1 score becomes a checklist: label accuracy + format compliance + faithfulness + LLM-as-judge. The model can be confidently wrong with no error thrown.
+- **Drift can come from the vendor.** You don't own the model — Anthropic can update it silently. A golden set run daily is your only early warning system.
 
 ## Decisions and tradeoffs
 
-*What choices did you make while filling in the comparison, and why? For example: what use case did you pick, and what made it a good vehicle for seeing the differences?*
-
-- [ ] Fill in
+- Used a support-ticket classifier as the comparison vehicle because it is simple enough to understand quickly but rich enough to show differences at every stage (data labeling, schema changes, eval, deployment artifacts).
+- Chose to document both prompt-only and fine-tuning options under LLMOps data/training to show the full spectrum rather than treating LLMOps as purely zero-shot.
 
 ## Open questions going into Phase 1
 
-*What questions came up that Phase 1 (Prompt Management) should answer?*
-
-- [ ] Fill in
+- How should prompt versions be stored — flat files, YAML with metadata, a database?
+- How do you diff two prompt versions' *outputs* (not just text) on the same input set?
+- What metadata belongs on a prompt artifact (version, author, model, temperature, date)?
