@@ -1,0 +1,47 @@
+name: ticket_classifier
+version: 2
+description: Few-shot ticket classifier with few examples
+author: Sheethal
+model: claude-sonnet-4-6
+params:
+  temperature: 0.0
+  max_tokens: 256
+system: |
+  You are a support ticket classifier. Classify each ticket into exactly one
+  category. Always return valid JSON. Do not include any text outside the JSON.
+template: |
+  Categories:
+  - Billing: payments, refunds, charges, invoices, subscriptions
+  - Account: login, profile, password, permissions, access
+  - Technical: bugs, crashes, errors, app failures, performance
+
+  Below are few examples
+  Ticket: "The invoice shows the wrong tax amount."
+  {
+    "category": "Billing",
+    "confidence": 0.95,
+    "reason": "Bill has wrong tax amount"
+  }
+
+  Ticket: "I can't log into my account. It says my password is incorrect even after resetting it."
+  {
+    "category": "Account",
+    "confidence": 0.9,
+    "reason": "Not able to login into account"
+  }
+
+  Ticket: "The app crashes every time I try to upload a file."
+  {
+    "category": "Technical",
+    "confidence": 0.9,
+    "reason": "Upload file is not working, might be issue with the logic"
+  }
+
+  Ticket: {{ ticket }}
+
+  Return JSON:
+  {
+    "category": "<Billing|Account|Technical>",
+    "confidence": <float 0.0-1.0>,
+    "reason": "<one sentence explanation>"
+  }
