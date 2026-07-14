@@ -26,9 +26,13 @@ llmops-roadmap/
 │   └── README.md
 │
 ├── phase-2-rag/
+│   ├── corpus/                     # source documents for ingestion (static .txt files)
+│   ├── prompts/                    # versioned RAG prompt YAML files (loaded via shared/prompt_manager)
 │   ├── ingestion/                  # chunking + embedding + indexing pipeline
 │   ├── api/                        # FastAPI RAG service
 │   ├── eval/                       # RAGAS eval harness + golden QA set
+│   │   └── reports/                # timestamped eval reports (gitignored except baseline)
+│   ├── tests/                      # pytest tests for ingestion, retriever, and API
 │   ├── docker/
 │   └── README.md
 │
@@ -85,7 +89,7 @@ llmops-roadmap/
 │
 ├── shared/
 │   ├── prompt_manager/             # promoted, reusable version of phase-1 tool
-│   ├── llm_clients/                # thin wrappers around model provider SDKs
+│   ├── llm_clients/                # thin wrappers around model provider SDKs (stub added Phase 2)
 │   └── eval_lib/                   # shared eval utilities reused across phases/capstone
 │
 └── .github/

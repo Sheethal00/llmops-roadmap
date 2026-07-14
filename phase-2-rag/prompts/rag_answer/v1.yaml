@@ -1,0 +1,11 @@
+name: rag_answer
+version: 1
+description: Answer a question using retrieved context chunks
+author: you
+model: claude-sonnet-4-6
+system: "You are a helpful assistant that answers questions about Anthropic's Claude API. Answer using only the provided context. If the answer isn't in the context, say so."
+template: |
+  Context:
+  {{ context }}
+
+  Question: {{ question }}

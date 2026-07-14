@@ -1,0 +1,30 @@
+[
+  {
+    "question": "What is prompt caching and what types of content can be cached?",
+    "ground_truth": "Prompt caching is a feature that lets Claude reuse parts of a prompt that stay the same across multiple requests, so those tokens do not have to be processed repeatedly. It is especially useful for long system prompts, large documents, reference material, or tool definitions that are reused often. By caching this static content, applications can reduce latency and lower API costs while still sending new user input with each request. Dynamic parts of the conversation are typically not cached because they change from request to request."
+  },
+  {
+    "question": "How does Claude's context window work, and what happens when a conversation exceeds it?",
+    "ground_truth": "Claude processes all the information in a conversation within its context window, which includes system prompts, user messages, assistant responses, and any attached content. The larger the context window, the more history and documents the model can consider when generating a response. If the conversation grows beyond the available context, older content is no longer included and the model loses access to that information unless it is provided again. This is why long-running applications often summarize or selectively retain important conversation history."
+  },
+  {
+    "question": "What is extended thinking and when should you use it instead of standard mode?",
+    "ground_truth": "Extended thinking is a mode that allows Claude to spend more computation on difficult reasoning tasks before producing an answer. It is useful for problems that require multiple reasoning steps, complex planning, coding challenges, or detailed analysis. For straightforward questions or simple text generation, standard mode is usually faster and more cost-effective. Choosing between the two depends on whether accuracy and deeper reasoning are more important than response speed."
+  },
+  {
+    "question": "What image formats does Claude support, and what are the size/resolution limits?",
+    "ground_truth": "Claude accepts common image formats such as JPEG, PNG, GIF, and WebP through the Messages API. Images should be reasonably sized because very large images may be resized or rejected if they exceed the supported limits for dimensions or file size. Higher-quality images generally produce better results, especially for OCR or detailed visual analysis. If multiple images are needed, each image should individually satisfy the API's supported limits."
+  },
+  {
+    "question": "How does tool use work in Claude — what is the basic request/response flow?",
+    "ground_truth": "Tool use in Claude follows a simple interaction pattern where the application first provides the available tool definitions along with the user's request. If Claude determines that a tool is needed, it responds with a tool-use request instead of a final answer. The application executes the requested tool, sends the tool's result back to Claude, and Claude then uses that information to generate the final response. This keeps the model responsible for deciding when to use tools while the application performs the actual execution."
+  },
+  {
+    "question": "What are the methods for getting structured output from Claude, and when would you use each?",
+    "ground_truth": "One common approach is prompt-based formatting, where you instruct Claude to return data in a specific structure such as JSON. Another option is to use tool calling, where the expected schema is defined through tool inputs and outputs, making the response more reliable for applications. Prompt-based formatting works well for simple extraction tasks, while tool-based structured output is better when downstream systems require consistent and validated data. The choice depends on how strict the output format needs to be."
+  },
+  {
+    "question": "How do you pass multiple images in a single API request using the Messages API?",
+    "ground_truth": "The Messages API allows multiple images to be included by adding several image content blocks within the same user message. Each image is provided alongside any accompanying text that explains the task or references the images. Claude processes all of the supplied images together, making it possible to compare, analyze, or extract information across them in a single request. This approach is useful for tasks such as document comparison, before-and-after analysis, or multi-page visual understanding."
+  }
+]

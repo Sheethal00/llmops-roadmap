@@ -33,6 +33,10 @@ adapters/
 # Docker
 .dockerignore
 
+# Qdrant local storage
+qdrant_storage/
+qdrant_data/
+
 # OS
 .DS_Store
 Thumbs.db

@@ -1,0 +1,11 @@
+anthropic
+fastapi
+uvicorn
+qdrant-client
+sentence-transformers
+numpy
+ragas
+langchain-anthropic
+langchain-google-vertexai
+python-dotenv
+pytest
