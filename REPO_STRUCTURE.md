@@ -37,8 +37,16 @@ llmops-roadmap/
 │   └── README.md
 │
 ├── phase-3-finetuning/
-│   ├── data/                       # curated fine-tuning dataset (or scripts to build it)
-│   ├── train/                      # LoRA/QLoRA training scripts
+│   ├── data/                       # dataset generation + tokenization scripts
+│   │   ├── raw/                    # raw generated JSONL (gitignored)
+│   │   ├── processed/              # tokenized HuggingFace dataset (gitignored)
+│   │   ├── generate_dataset.py     # calls Claude to generate synthetic tickets
+│   │   └── prepare_dataset.py      # tokenize + train/val split + save
+│   ├── notebooks/
+│   │   └── train_lora.ipynb        # Colab training notebook (primary training artifact)
+│   ├── prompts/                    # versioned prompt YAML for dataset generation
+│   ├── tests/
+│   ├── requirements.txt
 │   ├── model_card.md
 │   └── README.md
 │

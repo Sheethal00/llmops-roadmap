@@ -1,0 +1,11 @@
+anthropic
+python-dotenv
+datasets
+transformers
+peft
+torch
+accelerate
+bitsandbytes
+wandb
+scikit-learn
+pytest

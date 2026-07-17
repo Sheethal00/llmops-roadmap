@@ -1,0 +1,22 @@
+name: ticket_classifier_gen
+version: 1
+description: Generate synthetic support tickets for fine-tuning a classifier
+author: sheethal
+model: claude-sonnet-4-6
+params:
+  max_tokens: 8192
+system: |
+  You are a dataset generator. Generate realistic, varied customer support tickets.
+  Return only a JSON array — no explanation, no markdown, no code fences.
+template: |
+  Generate {{ count }} synthetic customer support tickets for the category "{{ label }}".
+
+  Requirements:
+  - Vary the length: some short (1 sentence), some medium (2-3 sentences), some detailed (4-5 sentences)
+  - Vary the tone: frustrated, polite, confused, urgent
+  - Make them realistic — the kind of message a real customer would write
+  - Do NOT include the category label in the ticket text
+  - Do NOT use placeholder names like [Customer Name]
+
+  Return a JSON array of strings, one ticket per element:
+  ["ticket text 1", "ticket text 2", ...]
